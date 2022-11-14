@@ -1,0 +1,20 @@
+@charset "utf-8";
+/* CSS Document */
+.border1{
+	border-style: solid;
+	background-color: lightgray;
+	
+}
+.border2{
+	border-style: solid;
+	padding: 5px;
+}
+.border3{
+	border-style: dashed;
+	border-color: blue; 
+	padding: 5px;
+}
+.border4{
+	border-style: dotted;
+	border-color: firebrick;
+}

@@ -1,0 +1,198 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Cờ Caro</title>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<style type="text/css">
+	*{
+		margin: 0 auto;
+		padding: 0 auto;
+		border-box: box-sizing;
+		text-align:center;
+	}
+	canvas{
+		width: 165px;
+		height: 165px;
+		background-color:#CCC;
+	}
+	h1{
+		text-transform:uppercase;
+		margin-bottom: 20px;
+	}
+	button{
+		margin-top:10px;
+	}
+</style>
+</head>
+
+<body>
+	<h1>Chúc bạn vui vẻ!</h1>
+	<form>
+		<canvas id="frame" width= "170" height="170" usemap="caro" onClick="Choice()"></canvas>
+		<br>
+		<div id="anoun"></div>
+		<br>
+		<button type="button" onclick="Clear()">Chơi lại</button>
+	</form>
+</body>
+<script>
+		var canvas = document.getElementById("frame");
+		var con = canvas.getContext('2d');
+		con.beginPath();
+		var x = 5,y = 5;
+		for(var i = 0;i < 3; i++){
+			for(var j = 0; j < 3; j++){
+				con.strokeRect(x,y,50,50);
+				x += 55;
+			}
+			x = 5;
+			y += 55;
+		}
+		con.stroke();
+		var check = [] ;
+			for (var j = 0; j < 3; j++){
+				check[j] = [];
+			}	
+			for(var i = 0; i < 3; i++){
+				for(var j = 0; j < 3; j++){
+				check[i][j] = 'r';
+				}
+			}	
+		var dem = 0, toggle = true, winx = 0, winy = 0, stop_check = false;
+		function Choice(){
+		var rect = canvas.getBoundingClientRect();
+		var x = event.clientX - rect.left;
+		var y = event.clientY - rect.top;
+		var h1,h2,w1 = 5,w2 = 0,x_choice, y_choice;
+		
+		for(var i = 0; i < 3; i++){
+			w1 = 4 + w2;
+			w2 = w1 + 49.5;
+			if( w1 < x && x < w2){
+				x_choice = i + 1;
+			}
+			if( w1 < y && y < w2){
+				y_choice = i + 1;
+			}
+			
+		}
+		if(x_choice > 0 && x_choice < 4 && y_choice > 0 && y_choice < 4 && stop_check == false){
+			if(dem < 9){
+				if(toggle){
+					if(check[x_choice-1][y_choice -1] == 'r'){
+						drawX(x_choice, y_choice); 
+						check[x_choice - 1][y_choice -1] = 'x';
+						toggle = !toggle;
+					}
+				}
+				else{
+					if(check[x_choice-1][y_choice -1] == 'r'){
+						drawO(x_choice, y_choice); 
+						check[x_choice - 1][y_choice - 1	] = 'o';
+						toggle = !toggle;
+					}
+				}
+				dem++;
+				if(dem == 9)
+				document.getElementById("anoun").innerHTML="Bàn cờ đầy !";
+			}
+			for(var i = 0;i < 3; i++){
+				for(var j = 0; j < 3; j++){
+					if(check[i][j] == 'x'){
+						winx++;
+						if(winx == 3){
+							document.getElementById("anoun").innerHTML="X win !";
+							stop_check = true;
+						}
+					}
+					else if(check[i][j] == 'o'){
+						winy++;
+						if(winy == 3){
+							document.getElementById("anoun").innerHTML="O win !";
+							stop_check = true;
+						}
+					}
+				}
+				winx = 0; winy = 0;
+				for(var j = 0; j < 3; j++){
+					if(check[j][i] == 'x'){
+						winx++;
+						if(winx == 3){
+							document.getElementById("anoun").innerHTML="X win !";
+							stop_check = true;
+						}
+					}
+					else if(check[j][i] == 'o'){
+						winy++;
+						if(winy == 3){
+							document.getElementById("anoun").innerHTML="O win !";
+							stop_check = true;
+						}
+					}
+				}
+				winx = 0; winy = 0;
+			}
+			for(var i = 0; i < 3; i++){
+				if(check[i][i] == 'x'){
+						winx++;
+						if(winx == 3){
+							document.getElementById("anoun").innerHTML="X win !";
+							stop_check = true;
+						}
+					}
+				else if(check[i][i] == 'o'){
+					winy++;
+					if(winy == 3){
+						document.getElementById("anoun").innerHTML="O win !";
+						stop_check = true;
+					} 
+				}
+			}
+			winx = 0; winy = 0;
+			for(var i = 0; i < 3; i++){
+					if(check[i][2-i] == 'x'){
+						winx++;
+						if(winx == 3){
+							document.getElementById("anoun").innerHTML="X win !";
+							stop_check = true;
+						}
+					}
+				else if(check[i][2-i] == 'o'){
+					winy++;
+					if(winy == 3){
+						document.getElementById("anoun").innerHTML="O win !";
+						stop_check = true;
+						} 
+					}
+			
+			}
+			winx = 0; winy = 0;
+		}
+			
+	}
+	function drawX(width,height){
+		//Vẽ X
+		con.beginPath();
+		con.moveTo(55 * width  - 40, 55 * height - 40);
+		con.lineTo(55 * width - 10 , 55 * height - 10);
+		con.strokeStyle = "blue"; 
+		con.stroke();
+		con.moveTo(55 * width - 10,55 * height - 40 ); 
+		con.lineTo(55 * width  - 40, 55* height -10);
+		con.stroke();
+	}
+	function drawO(width,height){
+		//Vẽ O
+		con.beginPath();
+		con.arc(55 * width -25, 55 * height - 25,20,0, Math.PI *2);
+		con.fillStyle = "red";
+		con.fill();	
+		con.strokeStyle = "red";
+		con.stroke(); 
+	}
+	let Clear = () => {
+		location.reload();
+	}
+</script>
+</html>

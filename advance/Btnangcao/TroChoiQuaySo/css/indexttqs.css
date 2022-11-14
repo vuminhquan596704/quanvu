@@ -1,0 +1,106 @@
+*{
+    margin: 0 auto;
+    padding: 0 auto;
+    box-sizing: border-box; 
+}
+:root{
+    --h17 : 17vh;
+}
+.title{
+    height: var(--h17);
+    background-image: linear-gradient(rgba(56, 154, 66 ,1),rgba(56, 154, 66 ,0.4));
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.title > h1{
+    text-transform: uppercase;
+    font-weight: 600;
+    color: yellow;
+    text-shadow: 2px 2px black;
+    cursor: context-menu;
+}
+.title > h1:hover{
+    font-size: 40px;
+    color: red;
+}
+.menu{
+    display: flex;
+    width: 100%;
+    background-color: blue;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.menu ul{
+    display: flex;
+    list-style: none;
+}
+.menu ul li{
+    margin-right: 15px;
+}
+.menu ul li a{
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+}
+.menu ul li a:hover{
+    font-size: 22px;
+    transition: 0.5s ease-in-out;
+    font-weight: 1000;
+    color: yellow;
+}
+.left{
+    float: left;
+    height: 70vh;
+    background-image: linear-gradient(rgba(56, 154, 66 ,1),rgba(56, 154, 66 ,0.4));
+    background-repeat: repeat-x;
+    width: 30vh;
+    padding: 20px;
+}
+.left ul li{
+    line-height: 50px;
+    color :white;
+    font-size: large;
+    font-weight: bold;
+}
+.clear{
+    clear: both;
+}
+.right{
+    width: 23.5%;
+    height: 70vh ;
+    float: right;
+    background-image: linear-gradient(rgba(56, 154, 66 ,1),rgba(56, 154, 66 ,0.4));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.introduce{
+    height: 40%;
+    width: 90%;
+    background-color: wheat;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    font-weight: bold;
+    border : 1px solid yellow
+}
+
+.footer{
+    width: 100%;
+    background-color: blue;
+    height: 5vh;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+}
+.nav{
+    width: 100%;
+}

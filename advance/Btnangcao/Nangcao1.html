@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+</head>
+
+<body>
+	<h1>Tìm kiếm và thay thế </h1>
+    <hr width="95%">
+    <form>
+    	<p><label for="input">Nhập chuỗi cần tìm:</label> <input type="text" name="input" id="input"> 
+        <input type="checkbox" name="check" id="check"><label for="check">Có phân biệt chữ hoa</label></p>
+        <p><label for="change">Nhập chuỗi thay thế: </label><input name="change" id="change" type="text"></p> 
+        <p><button type="button" onClick="process()">Tìm và thay thế</button></p>
+        <p><button type="reset">Khôi phục</button></p>
+    </form>
+    <div id ="information" style="border: black 1px solid; padding: 1rem;">
+    	<h2>CHƯƠNG I. HTML</h2>
+        HTML (Hypertext Markup Language) là một ngôn ngữ đánh dấu siêu văn bản, được dùng để tạo ra hầu hết các trang web
+        <h2>CHƯƠNG II. CSS</h2>
+        CSS là một ngôn ngữ định kiểu , một bộ quy tắc để mô tả hiển thị của các đối tượng trang web
+        <h2>CHƯƠNG III. JAVASCRIPT</h2>
+        Javascript là một ngôn ngữ lập trình xử lý trang web động phía client.
+        <h2>CHƯƠNG IV. JQUERY</h2>
+        jQuery là thư viện các hàm Javascript giúp nhà phát triển giảm thiểu số lượng mã lệnh khi viết code với Javascript.
+    </div>
+    <div id="test"></div>
+</body>
+<script>
+function process(){
+	var input = document.getElementById("input").value;
+	var change = document.getElementById("change").value;
+	var checkbox = document.getElementById("check").checked;
+	information = document.getElementById("information").innerHTML;
+	if(!checkbox){
+		var tam = document.getElementById("information").innerHTML.toLowerCase();
+		var inputTam = input.toLowerCase();
+			while(tam.indexOf(inputTam) != -1){
+			console.log(tam.indexOf(inputTam));
+			information = information.replace(information.substr(tam.indexOf(inputTam),inputTam.length),change);
+			tam = tam.replace(tam.substr(tam.indexOf(inputTam),inputTam.length),change);
+			console.log(tam);
+			}	
+	}
+	else{
+		information = information.replaceAll(input,change);
+	}
+	var test = document.getElementById("information").innerHTML = information;
+}
+
+</script>
+</html>

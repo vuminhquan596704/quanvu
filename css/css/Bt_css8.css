@@ -1,0 +1,28 @@
+@charset "utf-8";
+/* CSS Document */
+.div1{
+	width: 220px;
+	height: 130px;
+	background-color: yellow;
+	border: 2px black solid;
+	display: block;
+	margin-bottom: 40px;
+}
+.div2{
+	width: 220px;
+	height: 130px;
+	background-color: yellow;
+	border: 2px black solid;
+	display:inline-block;
+	overflow: hidden ;
+}
+.div3{
+	width: 220px;
+	height: 130px;
+	background-color: yellow;
+	border: 2px black solid;
+	display:inline-block;
+	overflow: scroll;
+	
+}
+

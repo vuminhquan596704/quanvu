@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ứng dụng web</title>
+    <link rel="stylesheet" href="css/indexttqs.css">
+    <link rel="stylesheet" href="css/quayso.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+        <header>
+            <div class="title">
+                <h1>Trò chơi quay số</h1>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="indexttqs.html">Trang chủ</a></li>
+                    <li><a href="tcqs.html">Trò chơi quay số</a></li>
+                    <li><a href="quayxs.html">Trò chơi quay xúc xắc</a></li>
+                </ul>
+            </div>
+        </header>
+        <nav>
+            <div class="left">
+                <div class="left-bg"></div>
+                <ul>
+                    <li>C#</li>
+                    <li>PHP & MySQL</li>
+                    <li>XML</li>
+                    <li>Java</li>
+                    <li>SQLSever</li>
+                    <li>APS.Net</li>
+                    <li>Windows</li>
+                </ul>
+            </div>
+            <div class="quayso">
+                <div id="randNum1" class="box"></div>
+                <div id="randNum2" class="box"></div>
+                <div id="randNum3" class="box"></div><br> 
+            </div>  
+              
+            <div class="right">
+                <div class="introduce">Vùng quảng cáo 1</div>
+                <div class="introduce">Vùng quảng cáo 2</div>
+            </div>
+            <div class="btn">
+                <button type="button" id="btn" class="clear">Quay số</button>
+                <div id="announce"></div>
+            </div>
+            
+        </nav>
+        <div class="clear"></div>
+        <footer class="footer">Bài thực hành Ứng dụng web</footer>
+        <script>
+            $(document).ready(
+                $("#btn").click(() => {
+                    let rand = () =>{ return Math.floor(Math.random() * 9) + 1;}
+                    let r1 = rand();
+                    let r2 = rand();
+                    let r3 = rand();
+                    let total = r1 + r2 + r3;
+                    $("#randNum1").html(r1);
+                    $("#randNum2").html(r2);
+                    $("#randNum3").html(r3);
+                    $("#announce").css({"color":"red","font-size":"30px","font-weight":"600"}).html(total);
+                })
+            );
+        </script>
+    </body>
+</html>

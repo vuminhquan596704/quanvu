@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="advance.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@300&family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
+    <title>Nâng cao</title>
+</head>
+<body>
+</body>
+    <a href ="../index.html" class="back"><img src="../image/icons8_back_60px.png"/> <span>Trở về</span> </a>
+    <div class="title">
+        <h1>Nâng cao</h1><br>
+        <span>Bài tập nâng cao, SCSS</span>
+    </div>
+
+    <section>
+        <div class="wave" id="wave1" style="--i:1;"></div>
+        <div class="wave" id="wave2" style="--i:2;"></div>
+        <div class="wave" id="wave3" style="--i:3;"></div>
+        <div class="wave" id="wave4" style="--i:4;"></div>
+    </section>
+    <div class="content">
+        <div class="icon-scroll"></div>
+        <div class="btnangcao" id="btnc">
+            <span>Bài tập nâng cao</span>
+            <div class="container">
+                <div class="card">
+                    <div class="imgBx">
+                        <img src="../image/card.jpg"/>
+                    </div>
+                    <div class="img_content">
+                        <div class="img_contentBx">
+                            <h3>Tìm chữ</h3>
+                        </div>
+                            <a href="./Btnangcao/Nangcao1.html">xem</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="imgBx">
+                        <img src="../image/Caro.jpg"/>
+                    </div>
+                    <div class="img_content">
+                        <div class="img_contentBx">
+                            <h3>Caro</h3>
+                        </div>
+                            <a href="./Btnangcao/Caro.html">xem</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="imgBx">
+                        <img src="../image/Ball.jpg"/>
+                    </div>
+                    <div class="img_content">
+                        <div class="img_contentBx">
+                            <h3>Tâng bóng</h3>
+                        </div>
+                            <a href="./Btnangcao/Nangcao2.html">xem</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="imgBx">
+                        <img src="../image/animal-race.jpg"/>
+                    </div>
+                    <div class="img_content">
+                        <div class="img_contentBx">
+                            <h3>Cuộc đua kỳ thú</h3>
+                        </div>
+                            <a href="Btnangcao/CuocDuaKyThu/cuocduakythu.html">xem</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="imgBx">
+                        <img src="../image/cat.jpg"/>
+                    </div>
+                    <div class="img_content">
+                        <div class="img_contentBx">
+                            <h3>Góc thư giản</h3>
+                        </div>
+                            <a href="Btnangcao/GocthuGian/indexGtg.html">xem</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="imgBx">
+                        <img src="../image/Dice.jpg"/>
+                    </div>
+                    <div class="img_content">
+                        <div class="img_contentBx">
+                            <h3>Trò chơi quay số</h3>
+                        </div>
+                            <a href="Btnangcao/TroChoiQuaySo/indexttqs.html">xem</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        let wave1 = document.getElementById('wave1');
+        let wave2 = document.getElementById('wave2');
+        let wave3 = document.getElementById('wave3');
+        let wave4 = document.getElementById('wave4');
+        
+        window.addEventListener('scroll',function(){
+            let value = window.scrollY;
+            wave1.style.backgroundPositionX = 400 + value * 4 +'px';
+            wave2.style.backgroundPositionX = 300 + value * -4 +'px';
+            wave3.style.backgroundPositionX = 200 + value * 2 +'px';
+            wave4.style.backgroundPositionX = 100 + value * -2+'px';
+        })
+        var h = document.getElementById("btnc");
+        console.log(h.offsetHeight);
+        if(h.offsetHeight < 700)
+            document.querySelector(".content").style["height"] = "150vh";
+
+
+        const btn = document.querySelector(".btn");
+
+        btn.onmousemove = function(e){
+            const x = e.pageX - btn.offsetLeft;
+            const y = e.pageY - btn.offsetTop;
+
+            btn.style.setProperty('--x',x +'px');
+            btn.style.setProperty('--y',y +'px');
+        }
+
+
+    </script>
+</body>
+</html>

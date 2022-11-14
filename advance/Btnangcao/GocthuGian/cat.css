@@ -1,0 +1,21 @@
+.img{
+    float: left;
+    display: inline;
+}
+img{
+    height: 150px;
+    width: 200px;
+    transition: 0.5s;
+}
+img:hover{
+    height: 200px;
+    width: 250px;
+}
+img:last-child{
+    margin-right: 10px;
+}
+.c-nav{
+    display: inline;
+    color: white;
+    line-height: 150%;
+}

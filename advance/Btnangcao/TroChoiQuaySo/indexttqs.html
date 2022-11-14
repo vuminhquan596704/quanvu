@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ứng dụng web</title>
+    <link rel="stylesheet" href="css/indexttqs.css">
+    <link rel="stylesheet" href="css/form.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        function view(){
+            let name = document.forms.f["name"].value;
+            let count = document.forms.f["count"].value;
+            let date = document.forms.f["date"].value;
+            let check = document.getElementById("r1").checked;
+            console.log(check[0]);
+            let announce ="";
+            if(name == ""){
+                announce += "Họ tên không được để trống<br>";
+            }
+            if(count ==""){
+                announce += "Số lượng mua không được để trống<br>";
+            }
+            else{
+                var num = parseInt(count);
+                if(num < 0){
+                    announce += "Số lượng mua không được bé hơn 0<br>";
+                }
+            }
+            if(date==""){
+                announce += "Bạn chưa nhập ngày<br>";
+            }
+            if(check == undefined){
+                announce += "Bạn chưa nhập chọn kiểu thanh toán";
+            }
+            $("#announce").html(announce);
+            
+            return false;
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="title">
+            <h1>Trò chơi quay số</h1>
+        </div>
+        <div class="menu">
+            <ul>
+                <li><a href="indexttqs.html">Trang chủ</a></li>
+                <li><a href="tcqs.html">Trò chơi quay số</a></li>
+                <li><a href="quayxs.html">Trò chơi quay xúc xắc</a></li>
+            </ul>
+        </div>
+    </header>
+    <nav>
+        <div class="left">
+            <div class="left-bg"></div>
+            <ul>
+                <li>C#</li>
+                <li>PHP & MySQL</li>
+                <li>XML</li>
+                <li>Java</li>
+                <li>SQLSever</li>
+                <li>APS.Net</li>
+                <li>Windows</li>
+            </ul>
+        </div>
+        <div class="form">
+            <h2>Đăng ký mua hàng</h2>
+            <form onsubmit="return view()" name="f">
+                <table >
+                    <tr><td>Họ tên: </td><td><input type="text" name="name"></td></tr>
+                    <tr><td>Email</td><td><input type="email" name="mail"></td></tr>
+                    <tr><td>Số lượng mua</td><td><input type="text" name="count"></td></tr>
+                    <tr><td>Ngày nhận hàng</td><td><input type="date" name="date" ></td></tr>
+                    <tr><td>Thanh toán</td><td><input type="radio" name="purchase" id="r2">Chuyển Khoản<input id="r1" type="radio" name="purchase">Trực tiếp khi giao hàng</td></tr>
+                    <tr><td></td><td><input type="submit" id="Run" value="Đăng ký"><button type="button">Mua</button>  <button type="reset">Xóa</button></td></tr>
+                </table>
+            </form>
+        </div>
+        
+        <div class="right">
+            <div class="introduce">Vùng quảng cáo 1</div>
+            <div class="introduce">Vùng quảng cáo 2</div>
+        </div>
+        <div id="announce"></div>
+    </nav>
+    <div class="clear"></div>
+    <footer class="footer">Bài thực hành Ứng dụng web</footer>
+    
+</body>
+</html>

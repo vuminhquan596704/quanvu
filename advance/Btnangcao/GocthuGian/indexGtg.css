@@ -1,0 +1,97 @@
+@charset "utf-8";
+/* CSS Document */
+*{
+	margin: 0 auto;
+	padding: 0 auto;
+	border-box: box-sizing;
+}
+:root{
+	--h18: 18vh;
+	--h8: 8vh;
+}
+header{
+	background: url(image/Star.png);
+	min-height: var(--h18);
+	min-width: 100%;
+	color: rgb(241, 180, 180);
+	display: flex;
+	justify-content: space-between;
+	position: relative;
+}
+header p.header{
+	font-size: 3.2em;
+	text-transform: uppercase;
+	font-weight:700;
+	padding: 10px;
+	text-shadow: 1px 1px 0 #900, 2px 2px 0 #900, 3px 3px 0 #900, 4px 4px 0 #900, 5px 5px 0 #900;
+	margin: 0;
+}
+header p.sub-header{
+	margin: 0;
+	padding: 10px;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	}
+nav{
+	height: calc(100vh - var(--h18) - var(--h8));
+	display: flex;
+	background-color: black;
+	
+}
+nav div.menu{
+	margin: 15px 3px;
+	border: 1px solid white;
+	width: 15%;
+	display: flex;
+	flex-direction: column;
+	padding: 20px;
+	
+}
+
+div.menu .button{
+	border: 1px solid lightgreen;
+	height: 100px;
+	width: 150px;
+	margin-top: 10px;
+	background-color: lightskyblue;
+	border-radius: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-decoration: none;
+	color: mediumblue;
+	font-weight: bolder;
+	font-size: 20px;
+}
+div.menu .button:hover{
+	background-color: palegoldenrod;
+	font-size	: 25px;
+	color: red;
+	text-align: center;
+}
+nav div.content{
+	margin: 15px 3px;
+	border: 1px solid white;
+	width: calc(100% - 15%);
+}
+.c-header{
+	border-bottom: 1px solid white;
+	height: 10%;
+	display: flex;
+	align-items: center;
+}
+h2{
+	text-transform: uppercase;
+	color: yellow;
+}
+footer{
+	height: var(--h8);
+	background-color:blue;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: white;
+	font-family: monospace;
+	font-size: 20px;
+}

@@ -1,0 +1,31 @@
+.title{
+    text-align: center;
+}
+.title > h1{
+    color: blue;
+}
+.title > p{
+    color: green;
+    font-weight: bold;
+    word-spacing: 10px;
+}
+.img{
+    display: flex;
+    flex-direction: column;
+    margin-left : 50px;
+    position: relative;
+}
+img{
+    width: 180px;
+    height: 150px;
+    position: relative;
+}
+#img1 , #img2 , #img3{
+}
+nav{
+    text-align: center ;
+}
+.announce{
+    text-align: center;
+    margin-top: 10px;
+}

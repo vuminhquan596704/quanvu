@@ -1,0 +1,72 @@
+@charset "utf-8";
+/* CSS Document */
+/*----------Title-----------*/
+.title{
+	font-size: 40px;
+	color:green;
+	font-weight: bold;
+}
+/*---------Selection bar---------*/
+ul{
+	padding: 5px;
+	text-align: left;
+	background-color:  #1B8CDD;
+	padding: 10px 0 10px ;
+	display: block;
+}
+ ul li {
+	list-style: none;
+	margin-right: 10px;
+	display: inline-block;
+	font-size: 16px;
+}
+ul li a:link,
+ul li a:visited
+{
+	color: white;
+	text-decoration: none;
+}
+.link:link,
+.link:visited
+{
+	font-size:25px;
+	padding-left: 10px;
+	font-family: "Time New Roman";
+	color: yellow;
+	text-shadow: 5px 5px #333333;
+	font-weight: bold;
+}
+.login{
+	float: right;
+}
+/*---------Content---------*/
+p{
+	font-weight: bold;
+}
+p span{
+	font-size: 20px;
+	color: green;
+}
+.button:link,
+.button:visited
+{
+	background-color:  #1B8CDD;
+	padding: 8px;
+	color: white;
+	font-weight: bold;
+	border: none;
+	border-radius: 5px;
+	text-decoration: none;
+	font-family: Arial;
+	font-size: 12px;
+	transition: all 0.5s;
+	
+}
+ul li a:hover,
+ul li a:active{
+	color :red !important;
+}
+.button:hover,
+.button:active{
+	background-color: #00408C;
+}

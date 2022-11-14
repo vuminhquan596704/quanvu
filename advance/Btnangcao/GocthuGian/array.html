@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ứng dụng web</title>
+    <link rel="Stylesheet" href="index.css" type="text/css">
+    <link rel="Stylesheet" href="array.css" type="text/css">
+</head>
+<body>
+    <header>
+        <p class="header">Góc thư giản</p>
+        <p class="sub-header">Môn học ứng dụng web </p>
+    </header>
+    <nav>
+        <div class="menu">
+            <a class="button" href="index.html">Trang Chủ</a>
+            <a class="button" href="array.html">Thống kê mảng</a>
+        </div>
+        <div class="content">
+            <div class="c-header">
+                <h2>Thống kê mảng</h2>
+            </div>
+            <div class="table">
+                <form>
+                    <table>
+                        <tr><th>Nhập số phần tử:</th><td><input type="text" id="input"></td></tr>
+                        <tr><td><button type="button" onclick="Run()">Tạo mảng</button></td><td><input type="text" name="out" id="output"></td></tr>
+                        <tr><td><button type="button" onclick="DeleteEvens()">Xóa các số chẵn</button></td>
+                        <td><button type="button" onclick="#">Quay Trái</button><button type="button" onclick="#">Quay Phải</button></td></tr>
+                    </table>            
+                </form>
+            </div>
+        </div>
+    </nav>
+    <footer></footer>
+</body>
+<script>
+    
+function Run(){
+    let nums = parseInt(document.getElementById("input").value);
+    arr = Array(nums).fill(0).map(()=>Math.floor(Math.random()*50));
+    document.getElementById("output").value = arr;
+}
+function DeleteEvens(){
+    odds = arr.filter(num => num % 2);
+    document.getElementById("output").value = odds;
+}
+
+</script>
+</html>

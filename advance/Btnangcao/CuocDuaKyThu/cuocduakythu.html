@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ứng Dụng Web</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="cuocduakythu.css"/>
+</head>
+<body>
+    <div class="title">
+    <h1>Cuộc đua kỳ thú</h1>
+        <p>Ngựa-Rùa-Thỏ</p>
+    </div>
+    <div class="img">
+        <img src="Image/Ngua.png" id="img1"/>
+        <img src="Image/Rua.png" id="img2"/>
+        <img src="Image/Tho.png"id="img3"/>
+    </div>
+    <nav>
+        <button type="button" id="Play">Play</button>
+        <button type="button" id ="Stop">Stop</button>
+        <button type="button" id ="Reset">Reset</button>
+    </nav>
+    <div class="announce"></div>
+    <script>
+        flag = false;
+        let imgWidth = $("#img1").width(); 
+        var frameW = parseInt($(".img").width() - imgWidth);
+        $(document).ready(function(){
+            if(flag == false){
+            $("#Play").click(function(){
+            run = setInterval(Move,300);
+            });
+            //Move
+            function Move(){
+                let left1 = parseInt($("#img1").css("left"));
+                let left2 = parseInt($("#img2").css("left"));
+                let left3 = parseInt($("#img3").css("left"));
+                    if(left1 == frameW){
+                        clearInterval(run);
+                        $(".announce").html("Ngựa thắng");
+                        flag = true;
+                        }
+                    else if(left2 == frameW){
+                        clearInterval(run);
+                        $(".announce").html("Rùa thắng");
+                        flag = true;
+                        }
+                    else if(left3 == frameW){
+                        clearInterval(run);
+                        $(".announce").html("Thỏ thắng");
+                        flag = true;
+                        }
+                
+                    if(left1  <= frameW  && left2  <= frameW && left3  <= frameW){    
+                        $("#img1").css("left", left1 + randMove(left1,frameW) +"px");
+                        $("#img2").css("left", left2 + randMove(left2,frameW) +"px");
+                        $("#img3").css("left", left3 + randMove(left3,frameW) +"px");
+                        }
+                    else {clearInterval(run);}
+                    console.log(flag);  
+            }
+            var randMove = (left,frameW) =>{
+                if(flag == false){
+                    dx = Math.floor(Math.random() * 50 + 20);
+                    if(dx < frameW - left) return dx;
+                    else return frameW - left;
+                }
+            }
+        }
+            $("#Stop").click(()=>{clearInterval(run)});
+            $("#Reset").click(()=>{
+                clearInterval(run);
+                $("#img1").css("left", 0 +"px");
+                $("#img2").css("left", 0 +"px");
+                $("#img3").css("left", 0 +"px");
+            })
+        });
+        
+    </script>
+</body>
+</html>

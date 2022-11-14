@@ -1,0 +1,22 @@
+@charset "utf-8";
+/* CSS Document */
+body {
+	color:#00000;
+	background-color:#ffffff;
+	font-family: Arial,Verdana,sans-serif;
+	
+}
+h1{color: blue;}
+p.one{
+	font-family: "Arial","Verdana", "sans-serif";
+	background-color: yellow;
+}
+p.two{
+	font-family:  "Times", "Times New Roman", "serif";
+	background-color: gray;
+}
+p.three{
+	font-family:  "courier", "courier new", "serif";
+	background-color: gray;
+	font-size: 20px;
+}
