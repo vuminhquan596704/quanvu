@@ -1,0 +1,178 @@
+*{
+    margin: 0 auto;
+    padding: 0 auto;
+    box-sizing: border-box;
+}
+.bg{
+    background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url(image/shutterstock_401061052.jpg);
+    background-size: cover;
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    background-position: center;
+    justify-content: center;
+	align-items: center;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 100%;
+    height: 2em;
+    color: white;
+    font-size: 20px;
+    padding: 1em;
+    font-family: 'Dosis', sans-serif;
+    font-weight: 500;
+    position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 10000;
+	transition: 0.5s;
+}
+
+.content1{
+    display: flex;
+    width: 60%;
+}
+ul{
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+}
+ul li { 
+    width: 33%;
+    list-style: none;  
+    margin: 10px;  
+}
+ul li a,
+ul li a:visited{
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+ul li a:hover{
+    border-bottom: 1px solid #fff;
+    padding-bottom: 3px;
+}
+ul li a:active{
+    font-weight: 600;
+}
+.contact{
+    width: 50%;
+    text-align: right;
+}
+.contact a,
+.contact a:visited{
+    text-decoration: none;
+    color: white;
+}
+.contact a:hover{
+    border-bottom: 1px solid #fff;
+    padding-bottom: 3px;
+}
+.contact a:active{
+    font-weight: 600;
+}
+.banner .content{
+	max-width: 900px;
+	text-align: center;
+	font-family: 'Dosis', sans-serif;
+}
+.banner .content h2{
+	font-size: 5em;	
+	color: #3877f5;
+}
+.banner .content p{
+	font-size: 2em;
+	color: #fff;
+}
+@media (max-width: 900px)
+{
+    .logo{
+        position: absolute;
+        left: 20px;
+        top: 15px;
+        align-self: start;
+        height: 2em;
+        width: 2em;
+    }
+    .content1{
+        width: 100%;
+    }
+    header ul{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: calc(100vh);
+        padding: 50px 100px;
+        text-align: center;
+        overflow: auto;
+        transition: 0.5s;
+        background-color: black;
+        flex-direction: column;
+        transform: translateY(-100%);
+        opacity: 0;
+        align-items: center;
+        overflow-x: hidden;
+    }
+    header.active ul{
+        transform: translate(0);
+        opacity: 1;
+    }
+    header ul li{
+        width: 100%;
+    }
+    header ul li a{
+        margin: 5px 0;
+        font-size: 20px;
+    }
+    .toggle{
+        display: block;
+        position: relative;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        margin-left: 20px ;
+    }
+    .toggle:before{
+        content: '';
+        position: absolute;
+        top: 4px;
+        width: 100%;
+        height: 2px;
+        background: #fff;
+        z-index: 1;
+        box-shadow: 0 10px 0 #fff;
+        transition: 0.5s;
+    }
+    .toggle:after{
+        content: '';
+        position: absolute;
+        bottom: 4px;
+        width: 100%;
+        height: 2px;
+        background: #fff;
+        z-index: 1;
+        transition: 0.5s;
+    }
+    header.active .toggle:before{
+       top:14px;
+       transform: rotate(45deg);
+       box-shadow:0 0 0 #fff ; 
+    }
+    header.active .toggle:after{
+        bottom: 14px;
+        transform: rotate(-45deg);
+    }
+    .banner .content h2{
+        font-size: 3em;	
+        color: #3877f5;
+    }
+    .banner .content p{
+        font-size: 1.2em;
+        color: #fff;
+	}
+}

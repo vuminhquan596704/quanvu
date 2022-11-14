@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>JQuery</title>
+    <style>
+        .container{
+            display: flex;
+            background-color: rgba(255, 210, 112, 0.8);
+            width: fit-content;
+        }
+        .fsection, .result{
+            width: 300px;
+        }
+        .result{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 50px;
+            color: blue;
+            font-weight: bold;
+        }
+        input{
+            margin: 10px;
+        }
+        form fieldset{
+            height: 150px;
+        }
+        table{
+            margin-top: 8%;
+        }
+        td:nth-child(2){
+            width: 250px;
+            cursor: pointer;
+        }
+        tr:nth-child(odd) td:nth-child(2){
+            background-color: rgb(255, 0, 157);
+        }
+        tr:nth-child(even) td:nth-child(2){
+            background-color: cyan;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="fsection">
+            <form>
+                <fieldset>
+                <legend>Chọn</legend>
+                <input type="radio" name="word" id="normal" onclick="nor()" checked><label for="normal">Chữ bình thường</label><br>
+                <input type="radio" name="word" id="shadow" onclick ="sha()"><label for="shadow">Chữ có bóng</label><br>
+                Chọn màu chữ: <input type="color" name="color" id="wcolor"><br>
+                <button type="button" onclick="del()">Xóa phần tử cuối</button>
+                </fieldset>
+            </form>
+            <form>
+                <fieldset>
+                <legend>Click vào một chuỗi</legend>
+                    <table>
+                        <tr><td>1.</td><td class="word">HTML</td></tr>
+                        <tr><td>2.</td><td class="word">CSS</td></tr>
+                        <tr><td>3.</td><td class="word">JQUERY</td></tr>
+                        <tr><td>4.</td><td class="word">JAVASCRIPT</td></tr>
+                    </table>
+                </fieldset>
+            </form>
+        </div>
+        <div class="result">
+            HTML
+        </div>
+    </div>
+    <script>
+        // Radio button
+        let nor = () =>{
+            $(".result").css({"text-shadow": "none"})
+        }
+        let sha = () =>{
+            $(".result").css({"text-shadow": "5px 5px 8px black"})
+        }
+        $("#wcolor").change(function(){
+            $('.result').css('color',$(this).val());
+        })
+        $(".word").click(function(){
+            $(".result").html($(this).html());
+        })
+        let del = () =>{
+            $("tr:last-child").remove();
+        }
+    </script>
+</body>
+</html>

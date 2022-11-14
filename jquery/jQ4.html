@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>JQuery</title>
+    <style>
+        .box{
+            width: 80px;
+            height: 80px;
+            display: inline-block;
+        }
+        .box1{
+            background-color:rgb(29, 120, 224);
+        }
+        .box2{
+            background-color:rgb(255, 0 , 0);
+        }
+        .box3{
+            background-color:rgb(255, 33, 251);
+        }
+        .box4{
+            background-color:rgb(0, 255, 20);
+        }
+        .res{
+            font-weight: bold;
+            transition: 0.5s;
+        }
+    </style>
+</head>
+<body>
+    <div class="box box1" id="b1"></div>
+    <div class="box box2" id="b2"></div>
+    <div class="box box3" id="b3"></div>
+    <div class="box box4" id="b4"></div><br>
+    <p class="res"></p>
+    <script>
+        $(".box").hover(function(){
+                $(".res").css("color",$(this).css("background-color")).html("Màu bạn chọn là màu: " +$(this).css("background-color"));
+            }
+        )
+    </script>
+</body>
+</html>
